@@ -27,11 +27,19 @@ public class MailboxRandomSpawner : MonoBehaviour
             yield return ArmRandomMailbox();
         }
     }
-
     IEnumerator ArmRandomMailbox()
     {
         var pool = mailboxes.FindAll(m => m != null && !m.Delivered);
-        if (pool.Count == 0) yield break;
+
+        if (pool.Count == 0)
+        {
+            
+            foreach (var m in mailboxes)
+                if (m != null) m.ResetTarget();
+
+            pool = mailboxes.FindAll(m => m != null && !m.Delivered);
+            if (pool.Count == 0) yield break;
+        }
 
         current = pool[Random.Range(0, pool.Count)];
         current.OnDelivered += HandleDelivered;

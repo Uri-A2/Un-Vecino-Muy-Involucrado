@@ -27,7 +27,7 @@ public class DogFollower : MonoBehaviour
     [SerializeField] bool showDebug = true;
 
     public DogState State { get; private set; } = DogState.Idle;
-    public float Strain { get; private set; }         // 0..1
+    public float Strain { get; private set; }       
     public event Action<DogFollower> OnLost;
 
     Transform leader;

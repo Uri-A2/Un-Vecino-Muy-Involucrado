@@ -64,12 +64,10 @@ public class POIMarker : MonoBehaviour
 
         canvas.enabled = visible;
         if (!visible) return;
-
-        // Project to screen spac 
         Vector3 sp = mainCam.WorldToScreenPoint(worldPos);
         bool behind = sp.z < 0f;
         Vector2 screen = new Vector2(sp.x, sp.y);
-        if (behind) screen = new Vector2(Screen.width - screen.x, -screen.y); // mirror to top edge
+        if (behind) screen = new Vector2(Screen.width - screen.x, -screen.y); 
 
         bool onScreen = !behind
             && screen.x >= 0f && screen.x <= Screen.width

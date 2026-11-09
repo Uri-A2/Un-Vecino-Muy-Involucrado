@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-
 public class WorldMarkerHUD : MonoBehaviour
 {
     class Entry { public Transform target; public Color color; public string label; }
@@ -72,7 +71,8 @@ public class WorldMarkerHUD : MonoBehaviour
 
         float angle = offscreen
             ? Mathf.Atan2(screen.x - Screen.width * 0.5f, -(screen.y - Screen.height * 0.5f)) * Mathf.Rad2Deg
-            : 45f; // on-screen marker is a diamond
+            : 45f; 
+
         GUIUtility.RotateAroundPivot(angle, screen);
         GUI.DrawTexture(new Rect(screen.x - size * 0.5f, screen.y - size * 0.5f, size, size), dot);
         GUI.matrix = prevMatrix;

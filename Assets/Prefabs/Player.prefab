@@ -1,0 +1,437 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &401734136063361047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128070600632276443}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2128070600632276443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401734136063361047}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.03540018, y: 0.765, z: 0.06}
+  m_LocalScale: {x: 1.7700053, y: 0.72716695, z: 2.059393}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1418643733463189752}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8385229192102182278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1418643733463189752}
+  - component: {fileID: 1530363477769862677}
+  - component: {fileID: 2220407617735253084}
+  - component: {fileID: 4425855262842359495}
+  - component: {fileID: 903468540017259176}
+  - component: {fileID: 5958143481830693449}
+  - component: {fileID: 1839260791406842139}
+  - component: {fileID: 5117504447920016405}
+  - component: {fileID: 2955382153831464795}
+  - component: {fileID: 8175290986660850761}
+  - component: {fileID: 5722821285446236402}
+  - component: {fileID: 4217965068151957213}
+  - component: {fileID: 2959309893529960403}
+  - component: {fileID: 4259147432497136502}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1418643733463189752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.82917, y: 1.71, z: 0.82917}
+  m_LocalScale: {x: 0.56497, y: 1.3752, z: 0.48558}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2128070600632276443}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1530363477769862677
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2220407617735253084
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!143 &4425855262842359495
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &903468540017259176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b9af31be30b614394499824756df76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoostAbility
+  boostKey: 306
+  boostSpeed: 90
+  boostDuration: 0.18
+  boostCooldown: 0.6
+  allowVerticalBoostInput: 0
+  boostSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.6
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.4
+      inSlope: -0.6
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxCharges: 1
+  refillOnGrounded: 1
+--- !u!114 &5958143481830693449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33fe0c8a4f624794997731b32fe3f322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMotor
+  cameraPivot: {fileID: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  walkSpeed: 15
+  runSpeed: 25
+  airControlMultiplier: 0.6
+  acceleration: 90
+  airAcceleration: 40
+  groundFriction: 10
+  jumpHeight: 3
+  gravity: -30
+  coyoteTime: 0.3
+  jumpBufferTime: 0.12
+  groundCheckDistance: 0.25
+  wallCheckDistance: 0.65
+  blockJumpWhileSlipping: 1
+  slipPull: 10
+--- !u!114 &1839260791406842139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67066f87878dbfb49a2dab2b5f2290b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VaultAbility
+  vaultableMask:
+    serializedVersion: 2
+    m_Bits: 128
+  forwardCheckDistance: 1
+  minObstacleHeight: 0.4
+  maxObstacleHeight: 1.6
+  ledgeCheckHeightAbove: 2.2
+  landingCheckRadius: 0.35
+  vaultDuration: 0.35
+  vaultHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minMoveSpeedToTrigger: 2
+  sloppyDurationMultiplier: 1.25
+  failedDurationMultiplier: 1.8
+  cleanVaultKeepsMomentum: 1
+--- !u!114 &5117504447920016405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19d4f0575568104cb0f554e458158e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WallJumpAbility
+  validWallMask:
+    serializedVersion: 2
+    m_Bits: 64
+  wallJumpUpForce: 20
+  wallJumpPushForce: 15
+  minAirTimeBeforeWallJump: 0.05
+  wallJumpCooldown: 0.15
+  maxWallStickTime: 0.6
+--- !u!114 &2955382153831464795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b50a92ca73960f4b84fe13ae21ff0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpeedometerUI
+  speedText: {fileID: 0}
+  mode: 1
+  showAcceleration: 1
+  showAsKmh: 1
+  speedFormat: F1
+  smoothing: 8
+  speedBar: {fileID: 0}
+  speedBarMax: 25
+--- !u!114 &8175290986660850761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5b397bfb0a2004ea034a537fcc90a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerActions
+  cam: {fileID: 0}
+  weapons:
+  - name: launcher
+    icon: {fileID: 0}
+    type: 1
+    fireRate: 1
+    range: 500
+    shotSfx: {fileID: 0}
+    shotVisualPrefab: {fileID: 0}
+    shotVisualSpeed: 60
+    visualMuzzle: {fileID: 0}
+    projectilePrefab: {fileID: 1828654078384123640, guid: 519805863c7d36249ab92ba04c5554f3, type: 3}
+    projectileSpeed: 60
+    projectileLifetime: 4
+    muzzle: {fileID: 2128070600632276443}
+  - name: Water Gun
+    icon: {fileID: 0}
+    type: 2
+    fireRate: 10
+    range: 500
+    shotSfx: {fileID: 0}
+    shotVisualPrefab: {fileID: -5359414249830138355, guid: 5e66fe230d3bbd74dbc55316f9be4228, type: 3}
+    shotVisualSpeed: 60
+    visualMuzzle: {fileID: 2128070600632276443}
+    projectilePrefab: {fileID: 1828654078384123640, guid: 519805863c7d36249ab92ba04c5554f3, type: 3}
+    projectileSpeed: 60
+    projectileLifetime: 4
+    muzzle: {fileID: 2128070600632276443}
+  waterGun: {fileID: 4259147432497136502}
+  shootMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  interactRadius: 3
+  interactMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &5722821285446236402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667171fc361f437498beccbd0b15a901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameHUD
+  timeText: {fileID: 0}
+  rankText: {fileID: 0}
+  streakText: {fileID: 0}
+  poiText: {fileID: 0}
+  nitroFill: {fileID: 0}
+  nitroReadyLabel: {fileID: 0}
+--- !u!114 &4217965068151957213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5b58bd44ae55e43a82d9c340a673a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementEffects
+  IsImmuneToSlip: 0
+--- !u!114 &2959309893529960403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07cc05a1627ed54cb631747c72cd2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VaultJudge
+  minCleanSpeed: 5
+  maxCleanSpeed: 14
+  maxCleanAngle: 35
+  sloppyMargin: 0.3
+  sloppyStumble: 0.5
+  sloppySpeedMult: 0.6
+  sloppyTimePenalty: 0
+  failedStumble: 1.1
+  failedSpeedMult: 0.15
+  failedTimePenalty: 1
+--- !u!114 &4259147432497136502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385229192102182278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f849811a0474741b6d6b7b8cb87d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterGunJam
+  secondsPerRoll: 4
+  jamChance: 0.508
+  skillKey: 32
+  needleSpeed: 1.3
+  zoneWidth: 0.15
+  failCooldown: 0.4
+  failTimePenalty: 2
+  failMeterPenalty: 0.05

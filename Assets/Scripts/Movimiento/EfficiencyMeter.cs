@@ -20,8 +20,10 @@ public class EfficiencyMeter : MonoBehaviour
     public static readonly string[] RankNames =
         { "Mal Vecino", "Vecino Flojo", "Vecino", "Vecino Involucrado", "Vecino Muy Involucrado" };
     static readonly float[] RankThresholds = { 0f, 0.2f, 0.4f, 0.65f, 0.85f };
-
-    public float Value { get; private set; }         // 0..1
+    public int TasksCompleted { get; private set; }
+    public int BestStreak { get; private set; }
+    public int PeakRankIndex { get; private set; }
+    public float Value { get; private set; }         
     public int Streak { get; private set; }
     public int RankIndex { get; private set; }
     public string RankName => RankNames[RankIndex];
@@ -65,6 +67,8 @@ public class EfficiencyMeter : MonoBehaviour
     {
         Streak = (Time.time - lastGainTime <= chainWindow) ? Streak + 1 : 0;
         lastGainTime = Time.time;
+        TasksCompleted++;
+        if (Streak > BestStreak) BestStreak = Streak;
         if (NitroActive) return;
 
         float gain = baseGainPerTask * Mathf.Lerp(0.5f, 1f, Mathf.Clamp01(quality)) * (1f + streakBonus * Streak);
@@ -90,6 +94,7 @@ public class EfficiencyMeter : MonoBehaviour
     {
         int r = 0;
         for (int i = 0; i < RankThresholds.Length; i++) if (Value >= RankThresholds[i]) r = i;
-        if (r != RankIndex) { RankIndex = r; OnRankChanged?.Invoke(r); }
+        if (r > PeakRankIndex) PeakRankIndex = r;
+        { RankIndex = r; OnRankChanged?.Invoke(r); }
     }
 }

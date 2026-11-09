@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class MailProjectile : MonoBehaviour
 {
     [SerializeField] ParticleSystem impactVfx;

@@ -12,7 +12,7 @@ public class BoostAbility : MonoBehaviour
     public bool allowVerticalBoostInput = false; 
     public AnimationCurve boostSpeedCurve = AnimationCurve.Linear(0, 1, 1, 0.4f); 
 
-    [Header("Charges (optional)")]
+    [Header("Total chargess")]
     public int maxCharges = 2;
     public bool refillOnGrounded = true;
 
