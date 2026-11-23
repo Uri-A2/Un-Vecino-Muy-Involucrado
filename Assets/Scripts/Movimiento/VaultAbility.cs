@@ -18,7 +18,7 @@ public class VaultAbility : MonoBehaviour
     public AnimationCurve vaultHeightCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     public float minMoveSpeedToTrigger = 2f;
 
-    // [OBSTACLES]
+   
     [Header("Vault qual")]
     public float sloppyDurationMultiplier = 1.25f;
     public float failedDurationMultiplier = 1.8f;

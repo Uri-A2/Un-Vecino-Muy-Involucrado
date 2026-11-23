@@ -51,6 +51,20 @@ public class PlayerActions : MonoBehaviour
         if (scroll > 0f) SwitchWeapon(1);
         else if (scroll < 0f) SwitchWeapon(-1);
 
+        
+        if (weapons != null)
+        {
+            int max = Mathf.Min(weapons.Length, 9);
+            for (int i = 0; i < max; i++)
+            {
+                if (kb[Key.Digit1 + i].wasPressedThisFrame)
+                {
+                    SetWeapon(i);
+                    break;
+                }
+            }
+        }
+
         bool wantsFire = mouse.leftButton.isPressed && Current != null;
         bool isWater = Current != null && Current.type == WeaponType.WaterGun;
         bool jammed = isWater && waterGun != null && waterGun.Jammed;

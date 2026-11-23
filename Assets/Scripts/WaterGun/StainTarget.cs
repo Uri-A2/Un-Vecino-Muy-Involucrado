@@ -75,7 +75,7 @@ public class StainTarget : MonoBehaviour, IShootable
         foreach (var c in GetComponentsInChildren<Collider>()) c.enabled = false;
 
         OnCleaned?.Invoke(this);
-        Invoke(nameof(Hide), destroyDelay);   // instead of Destroy
+        Invoke(nameof(Hide), destroyDelay);   
     }
 
     void Hide() => gameObject.SetActive(false);
@@ -97,7 +97,7 @@ public class StainTarget : MonoBehaviour, IShootable
 
     static void MakeTransparent(Material m)
     {
-        if (m.HasProperty("_Surface")) // URP Lit / Unlit
+        if (m.HasProperty("_Surface")) //URP Lit-Unlit
         {
             m.SetFloat("_Surface", 1f);
             m.SetFloat("_Blend", 0f);

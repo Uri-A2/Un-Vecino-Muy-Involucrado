@@ -25,22 +25,34 @@ public class PlayerMotor : MonoBehaviour
     [Header("Ground / Wall Detection")]
     public float groundCheckDistance = 0.25f;
     public float wallCheckDistance = 0.65f;
-
-    // [OBSTACLES]
     [Header("Obstacle effects")]
     public bool blockJumpWhileSlipping = true;
     public float slipPull = 10f;
 
     [Header("Slide")]
     public KeyCode slideKey = KeyCode.LeftControl;
-    public float slideMinStartSpeed = 8f;     
-    public float slideStartBoost = 1.2f;     
+    public float slideMinStartSpeed = 8f;
+    public float slideStartBoost = 1.2f;
     public float slideMaxSpeed = 15f;
     public float slideDeceleration = 8f;
-    public float slideEndSpeed = 4f;          
+    public float slideEndSpeed = 4f;
     public float slideMaxDuration = 1.2f;
-    public float slideHeight = 1f;          
+    public float slideHeight = 1f;
     public float slideCooldown = 0.3f;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    [Range(0f, 1f)] public float sfxVolume = 1f;
+    public float pitchVariation = 0.05f;
+    public AudioClip[] jumpSounds;
+    public AudioClip[] landSounds;
+    public float minLandSpeed = 4f;
+    public AudioClip[] footstepSounds;
+    public float walkStepDistance = 2.2f;
+    public float runStepDistance = 2.8f;
+    public AudioClip[] slideStartSounds;
+    public AudioClip slideLoopSound;
+    public AudioClip[] slideEndSounds;
 
     public CharacterController Controller { get; private set; }
     public Vector3 Velocity { get; private set; }
@@ -62,6 +74,12 @@ public class PlayerMotor : MonoBehaviour
     float _standHeight;
     Vector3 _standCenter;
 
+    //audio
+    AudioSource _loopSource;
+    bool _wasGrounded;
+    float _peakFallSpeed;
+    float _stepAccum;
+
     void Awake()
     {
         Controller = GetComponent<CharacterController>();
@@ -70,6 +88,17 @@ public class PlayerMotor : MonoBehaviour
         _fx = GetComponent<PlayerMovementEffects>();
         if (cameraPivot == null && Camera.main != null)
             cameraPivot = Camera.main.transform;
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+        }
+
+        _loopSource = gameObject.AddComponent<AudioSource>();
+        _loopSource.playOnAwake = false;
+        _loopSource.loop = true;
+        _loopSource.spatialBlend = audioSource.spatialBlend;
     }
 
     void Update()
@@ -89,6 +118,8 @@ public class PlayerMotor : MonoBehaviour
 
         if (Controller.enabled)
             Controller.Move(Velocity * Time.deltaTime);
+
+        HandleFootsteps();
 
         _externalVelocityActive = false;
     }
@@ -110,6 +141,20 @@ public class PlayerMotor : MonoBehaviour
 
         if (IsGrounded && Velocity.y < 0f)
             _coyoteTimer = coyoteTime;
+
+        // Landing sound
+        if (!IsGrounded)
+        {
+            _peakFallSpeed = Mathf.Max(_peakFallSpeed, -Velocity.y);
+        }
+        else if (!_wasGrounded)
+        {
+            if (_peakFallSpeed >= minLandSpeed)
+                PlayRandom(landSounds);
+            _peakFallSpeed = 0f;
+            _stepAccum = 0f;
+        }
+        _wasGrounded = IsGrounded;
     }
 
     void CheckWall()
@@ -219,11 +264,21 @@ public class PlayerMotor : MonoBehaviour
         float feetY = _standCenter.y - _standHeight * 0.5f;
         Controller.height = slideHeight;
         Controller.center = new Vector3(_standCenter.x, feetY + slideHeight * 0.5f, _standCenter.z);
+
+        PlayRandom(slideStartSounds);
+        if (slideLoopSound != null)
+        {
+            _loopSource.clip = slideLoopSound;
+            _loopSource.volume = sfxVolume;
+            _loopSource.Play();
+        }
     }
 
-    void StopSlide()
+    void StopSlide(bool playSound = true)
     {
         IsSliding = false;
+        _loopSource.Stop();
+        if (playSound) PlayRandom(slideEndSounds);
         _slideCooldownTimer = slideCooldown;
         Controller.height = _standHeight;
         Controller.center = _standCenter;
@@ -231,7 +286,7 @@ public class PlayerMotor : MonoBehaviour
 
     bool HasHeadroom()
     {
-        
+
         float r = Controller.radius * 0.9f;
         float feetY = _standCenter.y - _standHeight * 0.5f;
         Vector3 origin = transform.position + Vector3.up * (feetY + slideHeight - Controller.radius);
@@ -244,15 +299,16 @@ public class PlayerMotor : MonoBehaviour
         bool canJump = _coyoteTimer > 0f && _jumpBufferTimer > 0f;
         if (blockJumpWhileSlipping && _fx != null && _fx.IsSlipping) canJump = false;
 
-        
+
         if (canJump && IsSliding && !HasHeadroom()) canJump = false;
 
         if (canJump)
         {
-            if (IsSliding) StopSlide();   
+            if (IsSliding) StopSlide(false);
 
             float jumpVel = Mathf.Sqrt(2f * jumpHeight * -gravity);
             Velocity = new Vector3(Velocity.x, jumpVel, Velocity.z);
+            PlayRandom(jumpSounds);
             _coyoteTimer = 0f;
             _jumpBufferTimer = 0f;
         }
@@ -268,6 +324,35 @@ public class PlayerMotor : MonoBehaviour
         {
             Velocity += Vector3.up * gravity * Time.deltaTime;
         }
+    }
+
+    void HandleFootsteps()
+    {
+        if (!IsGrounded || IsSliding || footstepSounds == null || footstepSounds.Length == 0)
+        {
+            return;
+        }
+
+        float flatSpeed = new Vector3(Velocity.x, 0f, Velocity.z).magnitude;
+        if (flatSpeed < 0.5f) return;
+
+        _stepAccum += flatSpeed * Time.deltaTime;
+        float stepDist = IsRunning ? runStepDistance : walkStepDistance;
+        if (_stepAccum >= stepDist)
+        {
+            _stepAccum = 0f;
+            PlayRandom(footstepSounds);
+        }
+    }
+
+    void PlayRandom(AudioClip[] clips)
+    {
+        if (clips == null || clips.Length == 0 || audioSource == null) return;
+        AudioClip clip = clips[Random.Range(0, clips.Length)];
+        if (clip == null) return;
+
+        audioSource.pitch = 1f + Random.Range(-pitchVariation, pitchVariation);
+        audioSource.PlayOneShot(clip, sfxVolume);
     }
 
     public void SetExternalVelocity(Vector3 newVelocity)

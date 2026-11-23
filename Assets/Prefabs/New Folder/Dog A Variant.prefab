@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1539564542522360774, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1539564542522360774, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.58042
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1539564542522360774, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.97999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1539564542522360774, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539564542522360774, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1539564542522360774, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1539564542522360774, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1539564542522360774, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -51,6 +51,14 @@ PrefabInstance:
     - target: {fileID: 5240485862180460347, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_Name
       value: Dog A Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240485862180460347, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420477733742515717, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7420477733742515717, guid: d100be739e1d22f49bd1fa76064bf2c4, type: 3}
       propertyPath: m_Parameters.widthMultiplier
